@@ -7,7 +7,7 @@
  *						in order of request on a single value. The value can be output,
  *						or the history of operations can be requested as a String output.	
  *
- *		Github Repository URL:	*/
+ *		Github Repository URL:	https://github.com/MichaelUmholtz/CSE360-Assignment-2	*/
 
 package cse360assign2;
 
@@ -15,9 +15,14 @@ public class Calculator {
 	/**	Integer used to store sum of all arithmetic operations.	*/
 	private int total;
 	
+	/** String used to store history of all arithmetic operations.	*/
+	private String operationHistory;
+	
 	/**	Basic constructor initializing total value to be 0.	*/
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		
+		operationHistory = "" + total;
 	}
 	
 	/**	Returns current total value when requested.
@@ -33,6 +38,8 @@ public class Calculator {
 	 * @param value Input value to be added (+) to total.*/
 	public void add (int value) {
 		total = value + total;
+		
+		operationHistory = (" + " + value);
 	}
 	
 	/**	Performs subtracting operation on current total by the given value, such that
@@ -41,6 +48,8 @@ public class Calculator {
 	 * @param value Input value to be subtracted (-) from total.	*/
 	public void subtract (int value) {
 		total = total - value;
+		
+		operationHistory = (" - " + value);
 	}
 	
 	/**	Performs a multiplicative operation on current total by the given value, such that
@@ -49,6 +58,8 @@ public class Calculator {
 	 * @param value Input value to be multiplied (*) with total.	*/
 	public void multiply (int value) {
 		total = total * value;
+		
+		operationHistory = (" * " + value);
 	}
 	
 	/**	Performs division operation on total by the given value, such that
@@ -61,12 +72,14 @@ public class Calculator {
 		}else {
 			total = total / value;
 		}
+		
+		operationHistory = (" / " + value);
 	}
 	
 	/**	Returns a string of all operations performed on the total in order of occurrence.
 	 * 
 	 * @return String with list of all operations performed.	*/
 	public String getHistory () {
-		return "";
+		return operationHistory;
 	}
 }
