@@ -24,7 +24,7 @@ public class Calculator {
 	 * 
 	 * @return Current value of all operations performed.	*/
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**	Performs additive operation on value given and current total, such that
@@ -32,7 +32,7 @@ public class Calculator {
 	 * 
 	 * @param value Input value to be added (+) to total.*/
 	public void add (int value) {
-		
+		total = value + total;
 	}
 	
 	/**	Performs subtracting operation on current total by the given value, such that
@@ -40,7 +40,7 @@ public class Calculator {
 	 * 
 	 * @param value Input value to be subtracted (-) from total.	*/
 	public void subtract (int value) {
-		
+		total = total - value;
 	}
 	
 	/**	Performs a multiplicative operation on current total by the given value, such that
@@ -48,7 +48,7 @@ public class Calculator {
 	 * 
 	 * @param value Input value to be multiplied (*) with total.	*/
 	public void multiply (int value) {
-		
+		total = total * value;
 	}
 	
 	/**	Performs division operation on total by the given value, such that
@@ -56,7 +56,11 @@ public class Calculator {
 	 * 
 	 *  @param value Input value that total is divided (/) by.	*/
 	public void divide (int value) {
-		
+		if(value == 0) {
+			total = 0;
+		}else {
+			total = total / value;
+		}
 	}
 	
 	/**	Returns a string of all operations performed on the total in order of occurrence.
